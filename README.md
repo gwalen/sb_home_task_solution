@@ -4,12 +4,12 @@
 
 ### Solution discussion, transaction logs and contract address
 
-[go here]() 
+[go here](/solution_transactions/solution.md) 
 
 ###Links to forked and modified Curve.fi repos and tokens generation code.  
 It was necessary to edit existing Curve repos for meta pool deployment as their current master repos are out of date and does not build. 
 
-[Token generation contract repo (mocks for DAI, USDC, USDT, sbUSD tokens used by MetaPool)]()
+[Token generation contract (mocks for DAI, USDC, USDT, sbUSD tokens used by MetaPool)]()
 
 [Curve-dao contracts forked and modified repo]()
 
