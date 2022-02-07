@@ -195,7 +195,7 @@ Configuration and checks:
   88487000000000000000000
 ```
 
-## Discussion on custom solution for slippage to high
+## Discussion on custom solution for slippage too high
 
 Uniswap was used insted of 1Inch cos 1Inch v2-protocol is already deprecated and new AggregationProtocol is recommended to be used with their web API rather than smart contract calls
 (also it would be quite hard to do it).
@@ -206,7 +206,7 @@ But if we would be on mainnet following could be used:
 * use [Mooniswap](https://mooniswap.exchange/#/swap) which solves (not 100% but a lot) the [front running and slippage issues](https://blog.1inch.io/1inch-revolutionizes-automated-market-maker-amm-segment-with-mooniswap-e068c20d94c)
 * use [Sorbet finance](https://www.sorbet.finance/limit-order?ref=gelato.network#/limit-order) and their limit orders based on Gelato and Uniswap
 * use [Gelato](https://app.gelato.network/) and implement delayed swap execution in hope the slippage will be smaller.
-* use Flahbots bundle or [MistX](https://mistx.io/swap) (latter is also using Flashbots) but this had to be submitted off-chain not from smart contracts.
+* use Flahbots bundle or [MistX](https://mistx.io/swap) (latter is also using Flashbots) to avoid front running and send transaction directly to miners, but this had to be submitted off-chain not from smart contracts
 
 
 
