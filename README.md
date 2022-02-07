@@ -6,22 +6,38 @@
 
 [go here](/solution_transactions/solution.md) 
 
-###Links to forked and modified Curve.fi repos and tokens generation code.  
-It was necessary to edit existing Curve repos for meta pool deployment as their current master repos are out of date and does not build. 
+### Links to forked and modified Curve.fi repos and tokens generation code.  
+It is important to emphasize that current master branches in Curve.fi repos are outdated and do not correctly build so it was necessary to debug and edit existing Curve repos for full meta pool deployment.
 
-[Token generation contract (mocks for DAI, USDC, USDT, sbUSD tokens used by MetaPool)]()
+Also, brownie used had to be updated to 1.17.2
 
-[Curve-dao contracts forked and modified repo]()
+**->ERC-20 token mocks for DAI, USDC, USDT, sbUSD**
 
-[Curve base pool (3Pool) contracts forked and modified repo]()
+[Token generation contract (mocks for DAI, USDC, USDT, sbUSD tokens used by MetaPool)](https://github.com/gwalen/erc20_token_mock)
 
-[Curve meta pool factory contracts forked and modified repo]()
+**->curve-dao**
+
+[Curve-dao contracts forked and modified repo](https://github.com/gwalen/curve-dao-contracts/tree/sb-task-changes)
+
+[PR to highlight changes](https://github.com/gwalen/curve-dao-contracts/pull/1)
+
+**->curve-contracts (3Pool)**
+
+[Curve base pool (3Pool) contracts forked and modified repo](https://github.com/gwalen/curve-contract/pull/1)
+
+[PR to highlight changes](https://github.com/gwalen/curve-contract/tree/sb-task-changes)
+
+**->curve-factory (meta-pool)**
+
+[Curve meta pool factory contracts forked and modified repo](https://github.com/gwalen/curve-factory/tree/sb-task-changes)
+
+[PR to highlight changes](https://github.com/gwalen/curve-factory/pull/1)
 
 
 ## Open questions
 
 #### 1) If a trade is rerouted to 1inch, how would it affect the liquidity providers in the sbUSD metapool?
-If trade is rerouted the liquidity providers on Curve would not be affected. They would not get any LP token rewards as Curve pools would not be used - this is under circumstances
+If trade is rerouted the liquidity providers on Curve would not be affected. They would not get any LP token rewards as Curve pools would not be used - this is under assumption
 that 1Inch would not reroute back to Curve pool. If Uniswap is used it is the same : no rewards for Curve liquidity providers, as Uniswap pools are used
 and theirs liquidity providers are affected and rewarded.
 

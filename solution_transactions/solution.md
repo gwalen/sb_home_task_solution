@@ -183,21 +183,25 @@ Configuration and checks:
 **Do exchange using Uniswap when slippage is too high:** 
 ```
 #----> use uniswap fallback
->>> expected = 1.1 # (to simulate slippage too high)
->>> meta.exchange_underlying(0, 1, 10**18, expected, {'from': ADMIN, 'priority_fee': '3 gwei'})
-{
-  Transaction sent: 0x3196a9185d6d7c096547f2346aa4ee321b4ee10d7c9807d0ee78395f7102d17c
-  MetaUSDBalances.exchange_underlying confirmed   Block: 10128466   Gas used: 233710 (71.16%)   Gas price: 3.000000012 gwei
-}
 >>> dai.balanceOf(ADMIN)
   89103928916970489340209
 >>> sbUsd.balanceOf(ADMIN)
   88487000000000000000000
+>>> expected = 1999315415451497164 # (to simulate slippage too high)
+>>> meta.exchange_underlying_with_opt(0, 1, 10**18, expected, 1, {'from': ADMIN, 'priority_fee': '3 gwei'})
+{
+  Transaction sent: 0xd2e44d64a634d8e1c1e04d535ddb7e76c910b8f074c51bf45b7c213c569a740a
+  MetaUSDBalances.exchange_underlying_with_opt confirmed   Block: 10132896   Gas used: 316955 (76.76%)   Gas price: 3.193318674 gwei
+}
+>>> dai.balanceOf(ADMIN)
+  89104909658467529263339
+>>> sbUsd.balanceOf(ADMIN)
+  88486000000000000000000
 ```
 
 ## Discussion on custom solution for slippage too high
 
-Uniswap was used insted of 1Inch cos 1Inch v2-protocol is already deprecated and new AggregationProtocol is recommended to be used with their web API rather than smart contract calls
+Uniswap was used instead of 1Inch cos 1Inch v2-protocol is already deprecated and new AggregationProtocol is recommended to be used with their web API rather than smart contract calls
 (also it would be quite hard to do it).
 
 On Rinkeby testnet there no contracts useful help with high slippage so in that situation so none was implemented.
